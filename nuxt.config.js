@@ -1,6 +1,13 @@
+import en from "./locales/en";
+import zh from "./locales/zh";
+
 export default {
   ssr: true,
   target: "static", // default is 'server'
+  
+  router: {
+    base: '/mvm.app/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -10,7 +17,7 @@ export default {
     },
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" },
       {
         hid: "description",
         name: "description",
@@ -28,7 +35,6 @@ export default {
       type: "image/x-icon",
       href: process.env.NUXT_ENV_PLATFORM === 'github' ? "/favicon.png" : "/favicon.png"
     }],
-
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -48,11 +54,23 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
-  // router: process.env.NUXT_ENV_PLATFORM === 'github' ? {
-  //   base: "/mvm.app/",
-  // } : undefined,
+  modules: [
+    '@nuxtjs/axios',
+    [
+      '@nuxtjs/i18n',
+      {
+        locales: ['en', 'zh'],
+        defaultLocale: 'en',
+        vueI18n: {
+          fallbackLocale: 'en',
+          messages: {
+            en,
+            zh
+          }
+        }
+      }
+    ]
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -63,4 +81,13 @@ export default {
       },
     },
   },
+
+  axios: {
+    retry: 3,
+    headers: {
+      common: {
+        'Content-Type': 'application/json'
+      }
+    }
+  }
 };

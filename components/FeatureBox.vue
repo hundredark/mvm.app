@@ -1,12 +1,22 @@
 <template>
-  <div class="feature-box">
-    <div class="font-bold sm:text-lg md:text-[22px] lg:text-3xl">
-      {{ title }}
+  <div :class="boxStyle">
+    <div :class="innerBoxStyle">
+      <object v-if="!!icon" :class="icon.style" :data="icon.src"></object>
+      
+      <div v-if="!!title" :class="title.style">{{ title.text }}</div>
+
+      <div v-if="!!content" :class="content.style">{{ content.text }}</div>
     </div>
-    <div
-      class="mt-1 text-sm opacity-60 sm:mt-1.5 md:text-base md:mt-3 lg:mt-3.5 lg:text-lg"
-    >
-      {{ content }}
+
+    <div v-if="!!link" class="flex flex-row items-center">
+      <a v-if="!!link.href" :href="link.href" class="flex flex-row items-center w-full cursor-pointer">
+        <div :class="link.style">{{ link.text }}</div>
+        <img v-if="!!link.icon" :class="link.iconStyle" :src="link.icon" :alt="link.iconAlt" />
+      </a>
+      <template v-else>
+        <div :class="link.style">{{ link.text }}</div>
+        <img v-if="!!link.icon" :class="link.iconStyle" :src="link.icon" :alt="link.iconAlt" />
+      </template>
     </div>
   </div>
 </template>
@@ -15,16 +25,15 @@
 export default {
   name: "FeatureBox",
   props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    content: {
-      type: String,
-      default: "",
-    },
-  },
+    boxStyle: [Array, String],
+    innerBoxStyle: String,
+    icon: Object,
+    title: Object,
+    content: Object,
+    link: Object,
+  }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
