@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center pt-[60px] pb-[100px] px-3 sm:pt-[130px] sm:pb-[172px] sm:px-9">
+  <div class="flex justify-center items-center pt-[120px] pb-[88px] px-3 sm:pt-[260px] sm:pb-[172px] sm:px-9">
     <div class="flex flex-col items-center w-full">
-      <div class="mb-16 px-3 w-full font-bold text-[32px] leading-[130%] sm:mb-[164px] sm:px-0 sm:text-[50px] sm:leading-[72px] sm:text-center">
+      <div class="mb-16 px-3 w-full font-bold text-[32px] leading-[130%] sm:mb-[162px] sm:px-0 sm:text-[50px] sm:leading-[72px] sm:text-center">
         <span class="text-primary">{{ $t("nfts.title1") }}</span>{{ $t("nfts.title2") }}
       </div>
 
@@ -10,7 +10,7 @@
           v-for="(img, i) in list"
           :key="i"
           :class="[
-            'relative flex-[0_0_31%] mb-3 sm:block sm:flex-[0_0_13%] sm:mb-7',
+            'relative flex-[0_0_31%] mb-3 rounded-lg overflow-hidden sm:block sm:flex-[0_0_13%] sm:mb-7',
             i > 11 ? 'hidden' : ''
           ]"
         >
@@ -20,7 +20,7 @@
             :alt="img.alt"
           />
           <div 
-          class="absolute top-0 right-0 w-full bg-black/50 rounded text-center text-sm font-bold leading-[150%] text-white lg:top-2.5 lg:right-2.5 lg:px-2.5 lg:w-fit lg:text-lg"
+          class="absolute top-0 right-0 w-full bg-black/50 text-center text-sm font-bold leading-[150%] text-white lg:top-2.5 lg:right-2.5 lg:px-2.5 lg:w-fit lg:text-lg lg:rounded"
           >{{ img.type }}</div>
         </div>
       </div>
@@ -29,22 +29,22 @@
 </template>
 
 <script>
-import lotusGang from "@/assets/images/nft/lotus_gang.png";
-import degentoonz from "@/assets/images/nft/degentoonz.png";
-import ape from "@/assets/images/nft/ape.png";
-import eagle from "@/assets/images/nft/cryptoninja_eagle.png";
-import lion from "@/assets/images/nft/lazy_lion.png";
-import clonex from "@/assets/images/nft/clone_x.png";
-import star1 from "@/assets/images/nft/Starcatchers1.png";
-import renga from "@/assets/images/nft/renga.png";
-import angryCat from "@/assets/images/nft/angry_cat.png";
-import gu from "@/assets/images/nft/genuine_undead.png";
-import penguine1 from "@/assets/images/nft/pudgy_penguins1.png";
-import penguine2 from "@/assets/images/nft/pudgy_penguins2.png";
-import gutterCatGang from "@/assets/images/nft/gutter_cat_gang.png";
-import panda from "@/assets/images/nft/cryptoninja_panda.png";
-import woman from "@/assets/images/nft/woman.png";
-import castaways from "@/assets/images/nft/castaways.png";
+import lotusGang from "@/assets/images/nft/lotus_gang.webp";
+import degentoonz from "@/assets/images/nft/degentoonz.webp";
+import ape from "@/assets/images/nft/bayc.webp";
+import eagle from "@/assets/images/nft/cryptoninja_eagle.webp";
+import lion from "@/assets/images/nft/lazy_lion.webp";
+import clonex from "@/assets/images/nft/clone_x.webp";
+import star1 from "@/assets/images/nft/Starcatchers.webp";
+import renga from "@/assets/images/nft/renga.webp";
+import angryCat from "@/assets/images/nft/angry_cat.webp";
+import gu from "@/assets/images/nft/genuine_undead.webp";
+import penguine1 from "@/assets/images/nft/pudgy_penguins1.webp";
+import penguine2 from "@/assets/images/nft/pudgy_penguins2.webp";
+import gutterCatGang from "@/assets/images/nft/gutter_cat_gang.webp";
+import panda from "@/assets/images/nft/cryptoninja_panda.webp";
+import woman from "@/assets/images/nft/woman.webp";
+import castaways from "@/assets/images/nft/castaways.webp";
 import boxcat from "@/assets/images/nft/boxcat.webp";
 import bananos from "@/assets/images/nft/bananos.webp";
 import degod from "@/assets/images/nft/degod.webp";
