@@ -33,7 +33,7 @@ export default {
     link: [{
       rel: "icon",
       type: "image/x-icon",
-      href: process.env.NUXT_ENV_PLATFORM === 'github' ? "/favicon.png" : "/favicon.png"
+      href: process.env.NUXT_ENV_PLATFORM === 'github' ? "/mvm.app/favicon.png" : "/favicon.png"
     }],
   },
 
