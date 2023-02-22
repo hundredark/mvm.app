@@ -3,7 +3,7 @@
     class="w-full px-6 pt-16 pb-20 bg-footer sm:h-[376px] sm:px-0"
   >
     <div 
-      class="flex flex-col w-full sm:h-[194px] sm:flex-row sm:mx-auto sm:w-[632px] md:w-[852px] lg:w-[1280px]"
+      class="flex flex-col w-full sm:h-[194px] sm:flex-row sm:mx-auto sm:w-[632px] md:w-[852px] lg:w-[1014px] xl:w-[1280px]"
     >
       <div class="h-full sm:w-5/12 md:w-1/2">
         <div class="flex flex-row items-center mb-8 sm:mb-4">
@@ -15,7 +15,7 @@
           <div class="flex flex-row justify-between items-center rounded-lg bg-white cursor-pointer" @click.stop="useToggleMenu">
             <div class="flex flex-row items-center">
               <img :src="langIconMap[currentLang]" class="m-2 h-4" alt="language" />
-              <div class="font-semibold text-base leading-6 text-black/80 select-none">{{ $t(`footer.locales.${currentLang}`) }}</div>
+              <div class="font-semibold text-base leading-6 text-black/80 select-none">{{ langText[currentLang] }}</div>
             </div>
             <img class="mr-2 w-4" :src="showLangMenu ? arrowUp : arrowDown" />
           </div>
@@ -31,7 +31,7 @@
               @click="useSelectLang(l.locale)"
             >
               <img :src="l.icon" class="my-[15px] mx-2 h-4" alt="language" />
-              <div class="font-normal text-base leading-6 text-black/80 select-none">{{ $t(`footer.locales.${l.locale}`) }}</div>
+              <div class="font-normal text-base leading-6 text-black/80 select-none">{{ langText[l.locale] }}</div>
             </div>
           </div>
         </div>
@@ -83,6 +83,10 @@ export default {
       discord,
       arrowUp,
       arrowDown,
+      langText: {
+        en: 'English',
+        zh: '简体中文'
+      },
       langIconMap: {
         en,
         zh
